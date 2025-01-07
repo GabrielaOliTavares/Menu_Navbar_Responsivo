@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+} 
+
+a:hover{
+    opacity: 0.7;
+}
+
+.logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around ;
+    align-items: center;
+    font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+    background: #23232e;
+    height: 8vh; /* vh é uma unidade responsiva que se adapta 
+    a altura da janela de visualização do usuario, 100vh ocupa a tela inteira*/
+} 
+
+main {
+    background: url("bg.jpg") no-repeat
+    center  center; /* imagem do background, 2center se referem ao
+    seu posicionamento do eixo x e y*/
+    background-size: cover; /* para o caso da resolução do monitor 
+    ser maior que da imagem */
+    height: 92vh;
+}
+
+ /*ul*/
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+/*itens da lista*/
+.nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+.mobile-menu {
+    display: none; /*so quero que apareça em telas menores
+    então escondo com display none */ 
+    cursor: pointer;}
+
+/*representa linhas do hamburguer*/
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background:  #fff;
+    margin: 8px; /*separar*/
+}
+
+@media (max-width:999px) {
+    body{
+        overflow-x: hidden ; /* se algo transborda fica
+        escondido do body*/
+    }
+    /*quando a tela for menor que 999px navlist tera o position: */
+    .nav-list{
+        position:absolute; /*podera posicionar navegação onde quiser */  
+        top: 8vh; /*logo abaixo do header*/
+        right: 0; /*menu na direita*/
+        width: 50vw;
+        height: 92vh;
+        background: #23232e;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translate(100%);
+        transition: transform 0.3s ease-in;
+
+}}
+
+.nav-list.active{ /*quando navlist tiver ativo */
+   /*active é a classe que foi adicionada no JS */
+    transform: translateX(0);
+}
+
+.nav-list li {
+    margin-left: 0;
+    opacity: 0;
+}
+
+.mobile-menu{
+    display: block; /* layout flexbox automaticamente se ajusta */
+}
